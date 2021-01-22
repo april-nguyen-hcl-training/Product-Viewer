@@ -18,7 +18,7 @@ In browser, go to [link](http://localhost:8081/product/).
 
 ```bash
 docker-compose --file docker/compose.yaml down
-docker image rm db webapp mariadb maven tomcat
+docker image rm db webapp mariadb maven:3.6.3-openjdk-11 tomcat:jdk11-openjdk
 ```
 
 ## License

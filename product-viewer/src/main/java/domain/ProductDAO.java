@@ -23,7 +23,6 @@ public class ProductDAO implements DAO<Product>{
 
     @Override
     public List<Product> getAll() {
-        List<Product> products = new ArrayList<>();
         try (Statement stmt = conn.createStatement()) {
             ResultSet rs = stmt.executeQuery(SELECT_ALL_SQL);
             while (rs.next()) {
