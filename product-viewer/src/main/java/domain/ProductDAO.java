@@ -14,8 +14,6 @@ public class ProductDAO implements DAO<Product>{
     final static String BY_ID_SQL = "select id, name, price, date_added from product where id=?";
     final static String SELECT_IDS_SQL = "select id from product";
 
-    List<Product> products = new ArrayList<>();
-
     Connection conn = null;
 
     public ProductDAO() {
@@ -24,6 +22,7 @@ public class ProductDAO implements DAO<Product>{
 
     @Override
     public List<Product> getAll() {
+        List<Product> products = new ArrayList<>();
         try (Statement stmt = conn.createStatement()) {
             ResultSet rs = stmt.executeQuery(SELECT_ALL_SQL);
             while (rs.next()) {
