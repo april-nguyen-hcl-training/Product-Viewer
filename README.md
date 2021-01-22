@@ -1,6 +1,6 @@
 # Product Viewer
 
-Foobar is a Python library for dealing with word pluralization.
+Product Viewer is a Java project using Maven, Apache Tomcat, and a MySQL database.
 
 ## Installation
 
