@@ -9,4 +9,5 @@ public interface DAO<T> {
     void delete(T entity);
     void delete(Long id);
     T update(T entity);
+    List<Long> getIds();
 }

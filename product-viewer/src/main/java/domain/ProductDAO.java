@@ -12,6 +12,7 @@ public class ProductDAO implements DAO<Product>{
     final static String SELECT_ALL_SQL = "select id, name, price, date_added from product";
     final static String INSERT_SQL = "insert into product (name, price) values (?, ?)";
     final static String BY_ID_SQL = "select id, name, price, date_added from product where id=?";
+    final static String SELECT_IDS_SQL = "select id from product";
 
     List<Product> products = new ArrayList<>();
 
@@ -102,5 +103,21 @@ public class ProductDAO implements DAO<Product>{
     @Override
     public Product update(Product entity) {
         return null;
+    }
+
+    @Override
+    public List<Long> getIds() {
+        List<Long> ids = new ArrayList<>();
+        try (Statement stmt = conn.createStatement()) {
+            ResultSet rs = stmt.executeQuery(SELECT_IDS_SQL);
+            while (rs.next()) {
+                long id = rs.getLong("id");
+                ids.add(id);
+            }
+        } catch (SQLException e) {
+            System.out.println("unable to run query");
+            e.printStackTrace();
+        }
+        return ids;
     }
 }
